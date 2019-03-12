@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer-resemble-testing",
+  "version": "1.0.0",
+  "description": "Repo for intro to visual regression testing with Puppeteer and Resemble.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/movd/puppeteer-resemble-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/movd/puppeteer-resemble-testing/issues"
+  },
+  "homepage": "https://github.com/movd/puppeteer-resemble-testing#readme",
+  "dependencies": {
+    "puppeteer": "^1.13.0"
+  }
+}
