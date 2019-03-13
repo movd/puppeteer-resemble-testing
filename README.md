@@ -1,2 +1,11 @@
 # puppeteer-resemble-testing
-Repo for intro to visual regression testing with Puppeteer and Resemble.js
+Repository for my intro blog posts to visual regression testing with Puppeteer and Resemble.js
+
+Part 1: [Creating screenshots in batches with Puppeteer](https://blog.uni-koeln.de/rrzk-knowhow/2019/03/13/visuelle-tests-puppeteer-screenshots/) (published in german language)
+
+## Run
+
+1. Clone this repository
+2. `mkdir screenshots`
+3. `npm install`
+4. `node app.js`
