@@ -4,7 +4,7 @@ const websites = [
   { url: 'https://rrzk.uni-koeln.de/', filename: 'homepage' },
   { url: 'https://rrzk.uni-koeln.de/aktuelles.html', filename: 'news' },
   { url: 'https://typo3.uni-koeln.de/typo3-angebote.html', filename: 'typo3-offerings'},
-  { url: 'https://typo3.uni-koeln.de/typo3-links-und-downloads.html', filename: 'typo3-links-and-downlods'}
+  { url: 'https://typo3.uni-koeln.de/typo3-links-und-downloads.html', filename: 'typo3-links-and-downloads'}
 ]
 
 const takeScreenshot = async (url, filename) => {
