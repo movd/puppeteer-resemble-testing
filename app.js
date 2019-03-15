@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer')
 const fs = require('fs')
+const resemble = require('resemblejs')
 
 const websites = [
   { url: 'https://rrzk.uni-koeln.de/', filename: 'homepage' },
@@ -21,6 +22,7 @@ const takeScreenshot = async (url, filename) => {
   await browser.close()
 }
 
+// Immediately-invoked arrow function after launch
 (async () => { 
   for (const website of websites) {
     const orgScreenshotPath = screenshotsFolder + website.filename + '.png'

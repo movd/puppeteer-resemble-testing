@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/movd/puppeteer-resemble-testing#readme",
   "dependencies": {
-    "puppeteer": "^1.13.0"
+    "puppeteer": "^1.13.0",
+    "resemblejs": "^3.0.2"
   }
 }
