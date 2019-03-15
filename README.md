@@ -5,7 +5,6 @@ Part 1: [Creating screenshots in batches with Puppeteer](https://blog.uni-koeln.
 
 ## Run
 
-1. Clone this repository
-2. `mkdir screenshots`
-3. `npm install`
-4. `node app.js`
+1. `mkdir screenshots`
+2. `npm install`
+3. `node app.js`
