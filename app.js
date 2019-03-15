@@ -22,19 +22,49 @@ const takeScreenshot = async (url, filename) => {
   await browser.close()
 }
 
+const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) => {
+  console.log('Visual Regression: ' +  filename)
+
+  const diffFolder = screenshotsFolder + 'diff/'
+
+  if (!fs.existsSync(diffFolder)) {
+    fs.mkdir(diffFolder, (err) => {
+      if (err) throw err;
+    })
+  }
+
+  resemble(orgScreenshotPath).compareTo(testScreenshotPath).onComplete(data => {
+    if (data.misMatchPercentage > 0) {
+      console.log('Missmatch of ' + data.misMatchPercentage + '%')
+      const diffScreenshotPath = diffFolder + filename + '_' + data.misMatchPercentage + '_diff.png'
+      fs.writeFileSync(diffScreenshotPath, data.getBuffer())
+    }
+  })
+}
+
 // Immediately-invoked arrow function after launch
 (async () => { 
+
+  if (!fs.existsSync(screenshotsFolder)) {
+    fs.mkdir(screenshotsFolder, (err) => {
+      if (err) throw err;
+    })
+  }
+
   for (const website of websites) {
     const orgScreenshotPath = screenshotsFolder + website.filename + '.png'
     const testScreenshotPath = screenshotsFolder + website.filename + '_test.png'
     // Check if both original and testing screenshot already exist
     if (fs.existsSync(orgScreenshotPath) && fs.existsSync(testScreenshotPath)) {
       // Both exist run regressionTest()
+      await regressionTest(website.filename, orgScreenshotPath, testScreenshotPath)
     } else {
       if (fs.existsSync(orgScreenshotPath)) {
+        // Original exists create test screenshot
         await takeScreenshot(website.url, testScreenshotPath)
         .then(console.log('Created test: ' + website.filename))
       } else {
+        // No Original exists, let's create a new one
         await takeScreenshot(website.url, orgScreenshotPath)
         .then(console.log('Created original: ' + website.filename))
       }
