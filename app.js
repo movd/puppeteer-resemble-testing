@@ -17,7 +17,6 @@ const takeScreenshot = async (url, filename) => {
   await page.setViewport({ width: 1920, height: 1080 })
   await page.goto(url)
   await page.screenshot({ path: filename, fullPage: true })
-    .then(console.log('Screenshot: ' + filename))
   await page.close()
   await browser.close()
 }
