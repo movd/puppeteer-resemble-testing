@@ -34,7 +34,7 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
       // Create screenshots/diff folder only when needed
       if (!fs.existsSync(diffFolder)) {
         fs.mkdir(diffFolder, (err) => {
-          if (err) throw err;
+          if (err) throw err
         })
       }
 
@@ -50,7 +50,7 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
   // Create screenshots folder if it does not exist
   if (!fs.existsSync(screenshotsFolder)) {
     fs.mkdir(screenshotsFolder, (err) => {
-      if (err) throw err;
+      if (err) throw err
     })
   }
 
