@@ -1,6 +1,10 @@
 # Screenshots
 screenshots/
 
+# Eslint
+
+.eslintrc.js
+
 # Logs
 logs
 *.log
