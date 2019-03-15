@@ -27,15 +27,18 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
 
   const diffFolder = screenshotsFolder + 'diff/'
 
-  if (!fs.existsSync(diffFolder)) {
-    fs.mkdir(diffFolder, (err) => {
-      if (err) throw err;
-    })
-  }
-
-  resemble(orgScreenshotPath).compareTo(testScreenshotPath).onComplete(data => {
+    resemble(orgScreenshotPath).compareTo(testScreenshotPath).onComplete(data => {
     if (data.misMatchPercentage > 0) {
       console.log('Missmatch of ' + data.misMatchPercentage + '%')
+
+      // Create screenshots/diff folder only when needed
+      if (!fs.existsSync(diffFolder)) {
+        fs.mkdir(diffFolder, (err) => {
+          if (err) throw err;
+        })
+      }
+
+      // Set filename and folder for Diff file
       const diffScreenshotPath = diffFolder + filename + '_' + data.misMatchPercentage + '_diff.png'
       fs.writeFileSync(diffScreenshotPath, data.getBuffer())
     }
@@ -44,7 +47,7 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
 
 // Immediately-invoked arrow function after launch
 (async () => { 
-
+  // Create screenshots folder if it does not exist
   if (!fs.existsSync(screenshotsFolder)) {
     fs.mkdir(screenshotsFolder, (err) => {
       if (err) throw err;
