@@ -66,6 +66,7 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
         // Original exists create test screenshot
         await takeScreenshot(website.url, testScreenshotPath)
         .then(console.log('Created test: ' + website.filename))
+        .then(await regressionTest(website.filename, orgScreenshotPath, testScreenshotPath))
       } else {
         // No Original exists, let's create a new one
         await takeScreenshot(website.url, orgScreenshotPath)
