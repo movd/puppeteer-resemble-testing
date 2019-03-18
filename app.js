@@ -2,12 +2,29 @@ const puppeteer = require('puppeteer')
 const fs = require('fs')
 const resemble = require('resemblejs')
 
-const websites = [
-    { url: 'https://rrzk.uni-koeln.de/', filename: 'homepage' },
-    { url: 'https://rrzk.uni-koeln.de/aktuelles.html', filename: 'news' },
-    { url: 'https://typo3.uni-koeln.de/typo3-angebote.html', filename: 'typo3-offerings'},
-    { url: 'https://typo3.uni-koeln.de/typo3-links-und-downloads.html', filename: 'typo3-links-and-downloads'}
-]
+let websites = []
+
+process.argv = process.argv.slice(2) // Slice away the first two command line arguments
+
+if (process.argv.length == 0) { 
+    // If no command line arguments are given add hardcoded examples
+    websites = [
+        { url: 'https://rrzk.uni-koeln.de/', filename: 'homepage' },
+        { url: 'https://rrzk.uni-koeln.de/aktuelles.html', filename: 'news' },
+        { url: 'https://typo3.uni-koeln.de/typo3-angebote.html', filename: 'typo3-offerings' },
+        { url: 'https://typo3.uni-koeln.de/typo3-links-und-downloads.html', filename: 'typo3-links-and-downloads' }
+    ]
+} else {
+    process.argv.forEach((val, index) => {
+        try { // Check if argument is a URL
+            let screenshotURL = new URL(val)
+            // Add URL to websites array if valid and create filename
+            websites.push({ url: screenshotURL.href, filename: index + '_' + screenshotURL.host})
+        } catch (err) {
+            console.error('"' + val + '" Is not a valid URL!')
+        }
+    })
+}
 
 const screenshotsFolder = './screenshots/'
 
