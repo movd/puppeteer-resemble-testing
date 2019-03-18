@@ -40,7 +40,9 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
 
             // Set filename and folder for Diff file
             const diffScreenshotPath = diffFolder + filename + '_' + data.misMatchPercentage + '_diff.png'
-            fs.writeFileSync(diffScreenshotPath, data.getBuffer())
+            fs.writeFile(diffScreenshotPath, data.getBuffer(), (err) => {
+                if (err) throw err
+            })
         }
     })
 }
@@ -66,7 +68,7 @@ const regressionTest = async (filename, orgScreenshotPath, testScreenshotPath) =
                 // Original exists create test screenshot
                 await takeScreenshot(website.url, testScreenshotPath)
                     .then(console.log('Created test: ' + website.filename))
-                    .then(await regressionTest(website.filename, orgScreenshotPath, testScreenshotPath))
+                await regressionTest(website.filename, orgScreenshotPath, testScreenshotPath)
             } else {
                 // No Original exists, let's create a new one
                 await takeScreenshot(website.url, orgScreenshotPath)
