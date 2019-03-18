@@ -10,4 +10,4 @@ RUN cd /app && npm install --quiet
 
 WORKDIR /app
 
-CMD node app.js
+ENTRYPOINT [ "node" , "app.js" ] 
