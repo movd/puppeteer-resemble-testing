@@ -2,5 +2,6 @@ version: '3.0'
 services:
   puppeteer:
     build: .
+    container_name: puppeteer
     volumes:
       - ./screenshots:/app/screenshots
