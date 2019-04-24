@@ -17,9 +17,11 @@ You can pass your own URL(s) like so `node app.js http://example.com https://www
 
 ## Run with Docker
 
-This script can also be run in a containerized environment. This gives the guarantee that screenshots are created in consistent way with a stable Chrome Browser.
+[![](https://images.microbadger.com/badges/image/movd/puppeteer-resemble-testing.svg)](https://microbadger.com/images/movd/puppeteer-resemble-testing "Get your own image badge on microbadger.com")
 
-Using this [docker-puppeteer](https://github.com/zenato/docker-puppeteer) Base environment image like so:
+This script can also be run in a containerized environment. This gives the guarantee that screenshots are created in consistent way with a stable Chrome Browser:
 
-* `docker-compose build`
-* `docker run --rm -v "${PWD}/screenshots:/app/screenshots"  puppeteer-resemble-testing_puppeteer:latest http://example.com`
+* `docker pull movd/puppeteer-resemble-testing:latest`
+* `docker run --rm -v "${PWD}/screenshots:/app/screenshots"  movd/puppeteer-resemble-testing:latest http://example.com`
+
+Thanks to zenato for providing the [docker-puppeteer](https://github.com/zenato/docker-puppeteer) Base environment image.
