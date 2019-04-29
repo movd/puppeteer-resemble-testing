@@ -1,8 +1,8 @@
 # puppeteer-resemble-testing
 Repository for my intro blog posts to visual regression testing with Puppeteer and Resemble.js
 
-Part 1: [Creating screenshots in batches with Puppeteer](https://blog.uni-koeln.de/rrzk-knowhow/2019/03/13/visuelle-tests-puppeteer-screenshots/) 
-Part 2: [Visual Regression Testing with Puppeteer and Resemble.js](https://blog.uni-koeln.de/rrzk-knowhow/2019/04/29/visual-regression-testing-puppeteer-und-resemble-js/)
+* Part 1: [Creating screenshots in batches with Puppeteer](https://blog.uni-koeln.de/rrzk-knowhow/2019/03/13/visuelle-tests-puppeteer-screenshots/) 
+* Part 2: [Visual Regression Testing with Puppeteer and Resemble.js](https://blog.uni-koeln.de/rrzk-knowhow/2019/04/29/visual-regression-testing-puppeteer-und-resemble-js/)
 (currently both are just available in german language)
 
 ## Run
